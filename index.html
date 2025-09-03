@@ -24,7 +24,15 @@
       nav ul.active { display:flex; }
       .menu-toggle { display:block; }
     }
-
+.scrollable { overflow-x:auto; padding-bottom:20px; }
+.row { display:flex; gap:20px; flex-wrap:nowrap; }
+.item { flex:0 0 300px; }
+.rounded-rectangle { position:relative; border-radius:15px; overflow:hidden; height:400px; background-size:cover; background-position:center; }
+.text-box { position:absolute; bottom:0; background:rgba(0,0,0,0.5); color:#fff; padding:15px; width:100%; }
+.fontSet25 { font-size:25px; font-weight:700; margin-bottom:10px; }
+.fontSetG20 { font-size:20px; line-height:1.4; }
+.lineSet { text-decoration:underline; }
+.fontB { font-weight:700; }
     /* Hero */
     .hero { display:flex; align-items:center; justify-content:center; height:80vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x600') center/cover no-repeat; color:#fff; text-align:center; flex-direction:column; }
     .hero h1 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:1s; }
