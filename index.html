@@ -40,6 +40,22 @@
   .row { flex-wrap:nowrap; }
   .item { flex:0 0 80%; }
 }
+
+
+    #cost { padding:50px 20px; background:#f9f9f9; }
+#cost h2 { text-align:center; font-size:32px; margin-bottom:40px; }
+.cost-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.cost-item { background:#fff; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); padding:25px; width:300px; transition: transform 0.3s; }
+.cost-item:hover { transform: translateY(-5px); }
+.cost-item h3 { font-size:20px; margin-bottom:10px; color:#007BFF; }
+.cost-item p { font-size:16px; line-height:1.5; color:#333; }
+.highlight { font-weight:700; color:#007BFF; }
+.optional { font-size:14px; color:#888; }
+
+/* 모바일 대응 */
+@media(max-width:768px){
+  .cost-item { width:90%; }
+}
     /* Hero */
     .hero { display:flex; align-items:center; justify-content:center; height:80vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x600') center/cover no-repeat; color:#fff; text-align:center; flex-direction:column; }
     .hero h1 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:1s; }
@@ -184,14 +200,78 @@
  
 
   <!-- 창업비용 -->
-  <section id="costs">
-    <h2>창업비용</h2>
-    <div class="costs container">
-      <div class="card"><h3>초기비용</h3><p>₩5,000,000</p></div>
-      <div class="card"><h3>장비비용</h3><p>₩3,000,000</p></div>
-      <div class="card"><h3>인테리어</h3><p>₩2,000,000</p></div>
+  <section id="cost">
+  <h2>창업비용 안내</h2>
+  <div class="cost-container">
+
+    <div class="cost-item">
+      <h3>기준 평수</h3>
+      <p>8평 기준</p>
     </div>
-  </section>
+
+    <div class="cost-item">
+      <h3>키오스크</h3>
+      <p><span class="highlight">150 ~ 400만원</span></p>
+      <p>중고 상품 구매 시 150~200만원, 새 상품 구매 시 360~400만원</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>간판 (디자인 제공)</h3>
+      <p><span class="highlight">70 ~ 250만원</span></p>
+      <p>본사에서 디자인 제공, 직접 업체 선정하여 시공 가능</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>진열대</h3>
+      <p><span class="highlight">150 ~ 200만원</span></p>
+      <p>과자까지 진행 시 발생하는 비용 <span class="optional">[선택 사항]</span></p>
+    </div>
+
+    <div class="cost-item">
+      <h3>음료 냉장고</h3>
+      <p><span class="highlight">20 ~ 45만원</span></p>
+      <p>중고 구매 시 20~25만원, 새 상품 구매 시 45만원 <span class="optional">[선택 사항]</span></p>
+    </div>
+
+    <div class="cost-item">
+      <h3>과자/음료/냉동식품</h3>
+      <p><span class="highlight">400 ~ 500만원</span></p>
+      <p>스낵까지 진행 시 발생하는 비용 <span class="optional">[선택 사항]</span></p>
+    </div>
+
+    <div class="cost-item">
+      <h3>아이스크림</h3>
+      <p><span class="highlight">400 ~ 600만원</span></p>
+      <p>초도 물량 기준, 냉동고 6대 포함</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>아이스크림 냉동고</h3>
+      <p><span class="highlight">무상 지원</span></p>
+      <p>-</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>CCTV</h3>
+      <p><span class="highlight">월별 청구</span></p>
+      <p>4대 기준 월 4만원 (24인치 모니터 제공), 상황에 따라 추가 설치 가능</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>교육비</h3>
+      <p><span class="highlight">200 ~ 250만원</span></p>
+      <p>가맹점주 및 도매시장 방문 교육, 진열 노하우 전수</p>
+      <p>본사와 두 건 이상 계약 시 150만원</p>
+    </div>
+
+    <div class="cost-item">
+      <h3>사후관리</h3>
+      <p><span class="highlight">무상 지원</span></p>
+      <p>오픈 후 손님 유치를 위해 꾸준한 피드백 및 도움 제공</p>
+    </div>
+
+  </div>
+</section>
 
   <!-- 오픈준비 -->
   <section id="steps">
