@@ -25,14 +25,21 @@
       .menu-toggle { display:block; }
     }
 .scrollable { overflow-x:auto; padding-bottom:20px; }
-.row { display:flex; gap:20px; flex-wrap:nowrap; }
-.item { flex:0 0 300px; }
-.rounded-rectangle { position:relative; border-radius:15px; overflow:hidden; height:400px; background-size:cover; background-position:center; }
-.text-box { position:absolute; bottom:0; background:rgba(0,0,0,0.5); color:#fff; padding:15px; width:100%; }
-.fontSet25 { font-size:25px; font-weight:700; margin-bottom:10px; }
-.fontSetG20 { font-size:20px; line-height:1.4; }
+.row { display:flex; gap:30px; flex-wrap:nowrap; padding:10px 0; }
+.item { flex:0 0 320px; transition: transform 0.3s; }
+.item:hover { transform: scale(1.05); }
+.rounded-rectangle { position:relative; border-radius:20px; overflow:hidden; height:400px; background-size:cover; background-position:center; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.text-box { position:absolute; bottom:0; width:100%; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:#fff; padding:20px; }
+.text-box h3 { font-size:24px; font-weight:700; margin-bottom:10px; }
+.text-box p { font-size:16px; line-height:1.5; }
 .lineSet { text-decoration:underline; }
 .fontB { font-weight:700; }
+
+/* 모바일 대응 */
+@media(max-width:768px){
+  .row { flex-wrap:nowrap; }
+  .item { flex:0 0 80%; }
+}
     /* Hero */
     .hero { display:flex; align-items:center; justify-content:center; height:80vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x600') center/cover no-repeat; color:#fff; text-align:center; flex-direction:column; }
     .hero h1 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:1s; }
@@ -108,12 +115,11 @@
   <div class="scrollable container">
     <div class="row">
 
-      <!-- 카드 아이템 -->
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/printWeb.jpg');">
           <div class="text-box">
-            <p class="fontSet25">가격표 제작 서비스</p>
-            <p class="fontSetG20">착한가게24는 창업주님들이 손쉽게 가격표를 <span class="lineSet fontB">제작하고 출력</span>할 수 있는 서비스를 제공합니다.</p>
+            <h3>가격표 제작 서비스</h3>
+            <p>착한가게24는 창업주님들이 손쉽게 가격표를 <span class="lineSet fontB">제작하고 출력</span>할 수 있는 서비스를 제공합니다.</p>
           </div>
         </div>
       </div>
@@ -121,8 +127,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/1.jpg');">
           <div class="text-box">
-            <p class="fontSet25">상권 분석</p>
-            <p class="fontSetG20">30년 경력 전문가의 컨설팅으로 창업주님의 <span class="lineSet fontB">안정적인 매출</span>을 위한 상권 분석을 진행합니다.</p>
+            <h3>상권 분석</h3>
+            <p>30년 경력 전문가의 컨설팅으로 창업주님의 <span class="lineSet fontB">안정적인 매출</span>을 위한 상권 분석을 진행합니다.</p>
           </div>
         </div>
       </div>
@@ -130,8 +136,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/snack.jpg');">
           <div class="text-box">
-            <p class="fontSet25">Snack & Drink</p>
-            <p class="fontSetG20">다양한 스낵류와 음료 <span class="lineSet fontB">유통망 설계</span>와 트렌드를 찾는 노하우를 제공합니다. <span class="lineSet fontB">매출 비중 40%</span></p>
+            <h3>Snack & Drink</h3>
+            <p>다양한 스낵류와 음료 <span class="lineSet fontB">유통망 설계</span>와 트렌드를 찾는 노하우를 제공합니다. <span class="lineSet fontB">매출 비중 40%</span></p>
           </div>
         </div>
       </div>
@@ -139,8 +145,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/iceCream.jpg');">
           <div class="text-box">
-            <p class="fontSet25">Ice Cream</p>
-            <p class="fontSetG20">국민 간식 아이스크림 구색 맞춤이 중요하며, 냉동고는 <span class="lineSet fontB">무상 지원</span>됩니다. <span class="lineSet fontB">매출 비중 60%</span></p>
+            <h3>Ice Cream</h3>
+            <p>국민 간식 아이스크림 구색 맞춤이 중요하며, 냉동고는 <span class="lineSet fontB">무상 지원</span>됩니다. <span class="lineSet fontB">매출 비중 60%</span></p>
           </div>
         </div>
       </div>
@@ -148,8 +154,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/nabu04.jpg');">
           <div class="text-box">
-            <p class="fontSet25">냉동식품</p>
-            <p class="fontSetG20">타사 대비 다양한 아이템과 <span class="lineSet fontB">30여 가지 냉동식품</span>을 착한가게24만의 <span class="lineSet fontB">시그니처 유통경로</span>로 제공합니다.</p>
+            <h3>냉동식품</h3>
+            <p>타사 대비 다양한 아이템과 <span class="lineSet fontB">30여 가지 냉동식품</span>을 착한가게24만의 <span class="lineSet fontB">시그니처 유통경로</span>로 제공합니다.</p>
           </div>
         </div>
       </div>
@@ -157,8 +163,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/interior2.jpg');">
           <div class="text-box">
-            <p class="fontSet25">인테리어 비용 절감</p>
-            <p class="fontSetG20">착한가게24만의 착한 가격으로 창업주님의 비용 절감을 위해 <span class="lineSet fontB">최소한의 인테리어</span> 시공만 진행합니다.</p>
+            <h3>인테리어 비용 절감</h3>
+            <p>착한가게24만의 착한 가격으로 창업주님의 비용 절감을 위해 <span class="lineSet fontB">최소한의 인테리어</span> 시공만 진행합니다.</p>
           </div>
         </div>
       </div>
@@ -166,8 +172,8 @@
       <div class="item">
         <div class="rounded-rectangle" style="background-image: url('./webapp/img/sahumng.jpg');">
           <div class="text-box">
-            <p class="fontSet25">사후관리</p>
-            <p class="fontSetG20">창업주님이 전문가가 되는 그 날까지, 착한가게24는 <span class="lineSet fontB">지속적인 사후관리</span>를 제공합니다. 기타 문의사항도 신속 대응!</p>
+            <h3>사후관리</h3>
+            <p>창업주님이 전문가가 되는 그 날까지, 착한가게24는 <span class="lineSet fontB">지속적인 사후관리</span>를 제공합니다. 기타 문의사항도 신속 대응!</p>
           </div>
         </div>
       </div>
@@ -175,7 +181,6 @@
     </div>
   </div>
 </section>
-  
  
 
   <!-- 창업비용 -->
