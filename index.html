@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>착한가게24</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans KR', sans-serif; }
+    body { line-height:1.6; color:#333; scroll-behavior:smooth; }
+    a { text-decoration:none; color:inherit; }
+
+    /* Header */
+    header { position: fixed; top:0; left:0; right:0; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index: 1000; }
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+    nav { display:flex; justify-content:space-between; align-items:center; height:60px; }
+    nav .logo { font-weight:700; font-size:1.5rem; color:#FF6600; }
+    nav ul { display:flex; gap:20px; list-style:none; transition:0.3s; }
+    nav ul li a { font-weight:500; }
+    .menu-toggle { display:none; font-size:1.5rem; cursor:pointer; }
+
+    @media(max-width:768px){
+      nav ul { display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:0; width:200px; border:1px solid #eee; }
+      nav ul.active { display:flex; }
+      .menu-toggle { display:block; }
+    }
+
+    /* Hero */
+    .hero { display:flex; align-items:center; justify-content:center; height:80vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x600') center/cover no-repeat; color:#fff; text-align:center; flex-direction:column; }
+    .hero h1 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:1s; }
+    .hero a { padding:12px 25px; background:#FF6600; color:#fff; border-radius:5px; font-weight:700; transition:0.3s; opacity:0; transform:translateY(20px); }
+    .hero a:hover { background:#e65500; }
+
+    /* Sections */
+    section { padding:100px 20px; opacity:0; transform:translateY(20px); transition:1s; }
+    section h2 { font-size:2rem; margin-bottom:50px; text-align:center; color:#FF6600; }
+
+    /* About Us */
+    .about { display:flex; align-items:center; gap:40px; flex-wrap:wrap; }
+    .about img { flex:1; max-width:500px; border-radius:10px; }
+    .about .text { flex:1; }
+
+    /* 창업비용 */
+    .costs { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+    .costs .card { padding:20px; border:1px solid #eee; border-radius:10px; text-align:center; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition:0.3s; }
+    .costs .card:hover { transform:translateY(-10px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+    .costs .card h3 { margin-bottom:10px; }
+
+    /* 오픈준비 */
+    .steps { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+    .steps .step { flex:1; min-width:200px; text-align:center; transition:0.3s; }
+    .steps .step img { width:80px; margin-bottom:10px; }
+
+    /* 무인매장 */
+    .unmanned { text-align:center; }
+    .unmanned img { max-width:100%; border-radius:10px; margin-top:20px; }
+
+    /* 가맹점현황 */
+    #map { width:100%; height:400px; border-radius:10px; }
+
+    /* 상담문의 */
+    .contact form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:15px; }
+    .contact input, .contact textarea { padding:10px; border:1px solid #ccc; border-radius:5px; width:100%; }
+    .contact button { padding:10px; background:#FF6600; color:#fff; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+    .contact button:hover { background:#e65500; }
+
+    /* Footer */
+    footer { background:#333; color:#fff; text-align:center; padding:20px; }
+
+    /* Fade-in 효과 */
+    .fade-in { opacity:1 !important; transform:translateY(0) !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">착한가게24</div>
+        <div class="menu-toggle">&#9776;</div>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#costs">창업비용</a></li>
+          <li><a href="#steps">오픈준비</a></li>
+          <li><a href="#unmanned">무인매장</a></li>
+          <li><a href="#franchise">가맹점현황</a></li>
+          <li><a href="#contact">상담문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>착한가게24와 함께 시작하세요</h1>
+    <a href="#contact">상담문의 바로가기</a>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about container">
+      <img src="https://via.placeholder.com/500x300" alt="브랜드 이미지">
+      <div class="text">
+        <p>착한가게24는 누구나 쉽게 창업하고 성공할 수 있도록 지원하는 프랜차이즈 브랜드입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 창업비용 -->
+  <section id="costs">
+    <h2>창업비용</h2>
+    <div class="costs container">
+      <div class="card"><h3>초기비용</h3><p>₩5,000,000</p></div>
+      <div class="card"><h3>장비비용</h3><p>₩3,000,000</p></div>
+      <div class="card"><h3>인테리어</h3><p>₩2,000,000</p></div>
+    </div>
+  </section>
+
+  <!-- 오픈준비 -->
+  <section id="steps">
+    <h2>오픈준비</h2>
+    <div class="steps container">
+      <div class="step"><img src="https://via.placeholder.com/80" alt="계약"><p>계약</p></div>
+      <div class="step"><img src="https://via.placeholder.com/80" alt="교육"><p>교육</p></div>
+      <div class="step"><img src="https://via.placeholder.com/80" alt="설치"><p>매장 설치</p></div>
+      <div class="step"><img src="https://via.placeholder.com/80" alt="오픈"><p>오픈</p></div>
+    </div>
+  </section>
+
+  <!-- 무인매장 -->
+  <section id="unmanned">
+    <h2>무인매장</h2>
+    <div class="unmanned container">
+      <p>간편하고 효율적인 무인 매장 시스템을 경험하세요.</p>
+      <img src="https://via.placeholder.com/800x400" alt="무인매장">
+    </div>
+  </section>
+
+  <!-- 가맹점현황 -->
+  <section id="franchise">
+    <h2>가맹점현황</h2>
+    <div class="container">
+      <div id="map"></div>
+    </div>
+  </section>
+
+  <!-- 상담문의 -->
+  <section id="contact">
+    <h2>상담문의</h2>
+    <div class="contact container">
+      <form>
+        <input type="text" placeholder="이름" required>
+        <input type="tel" placeholder="연락처" required>
+        <textarea placeholder="문의내용" rows="5" required></textarea>
+        <button type="submit">문의 보내기</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 착한가게24. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // 메뉴 토글
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('nav ul');
+    toggle.addEventListener('click', () => { menu.classList.toggle('active'); });
+
+    // 스크롤 애니메이션
+    const sections = document.querySelectorAll('section, .hero h1, .hero a');
+    window.addEventListener('scroll', () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+          sec.classList.add('fade-in');
+        }
+      });
+    });
+
+    // 구글맵 초기화
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.5665, lng: 126.9780 }, // 서울 중심
+        zoom: 10,
+      });
+      const marker = new google.maps.Marker({
+        position: { lat: 37.5665, lng: 126.9780 },
+        map: map,
+        title: "착한가게24 서울점"
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
