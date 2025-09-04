@@ -83,6 +83,11 @@
 .store-card:hover { transform:translateY(-3px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
 #map { width:55%; height:500px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
 
+    .custom-gray {
+  color: #4b5563; /* Tailwind text-gray-600의 실제 색상값 */
+  font-size: 0.875rem; /* text-sm */
+}
+
     /* Hero */
     .hero { display:flex; align-items:center; justify-content:center; height:80vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1200x600') center/cover no-repeat; color:#fff; text-align:center; flex-direction:column; }
     .hero h1 { font-size:3rem; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:1s; }
@@ -364,8 +369,8 @@
   <!-- 무인매장 -->
 <section id="unmanned">
   <div class="section-title">
-    <h2 class="text-3xl font-bold mb-6 text-blue-600">무인매장장</h2>
-    <p class="text-gray-600 mb-8">현재 운영 중인 착한가게24 매장을 확인하세요</p>
+    <h2 class="text-3xl font-bold mb-6 text-blue-600">무인매장</h2>
+    <p class="custom-gray text-gray-600 mb-8">현재 운영 중인 착한가게24 매장을 확인하세요</p>
   </div>
 
   <div class="stores-container">
