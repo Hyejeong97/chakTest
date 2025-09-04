@@ -446,12 +446,12 @@
   <!-- 상단 상담문의 -->
   <div class="container top-footer" style="display:flex; justify-content:center; align-items:center; padding:20px; gap:10px; flex-wrap:wrap;">
     <div style="text-align:center;">
-      <span style="font-size:14px; color:#333; display:block;">아래 번호 클릭 시 전화 연결이 가능합니다.</span>
+      <span style="font-size:14px; display:block;">아래 번호 클릭 시 전화 연결이 가능합니다.</span>
       <span style="font-size:18px; font-weight:bold; display:inline-block; margin-top:5px;">[ 상담문의 ]</span>&nbsp;
       <a href="tel:15887126" style="font-size:18px; font-weight:bold; color:#1E90FF; text-decoration:none; display:inline-block;">
         1588-7126
       </a>&nbsp;
-      <span style="font-size:14px; color:#555;">(연중무휴)</span>
+      <span style="font-size:14px; ">(연중무휴)</span>
     </div>
   </div>
 
@@ -569,6 +569,12 @@
   const ctx2 = document.getElementById('pieChart2').getContext('2d');
   new Chart(ctx2, { type: 'doughnut', data: pieData2, options: commonOptions });
   </script>
+  <!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Optional: Chart.js 데이터 라벨 플러그인 (위 스크립트에서 labels 사용 시 필요) -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_본인_APPKEY&libraries=services"></script>
 </body>
 </html>
