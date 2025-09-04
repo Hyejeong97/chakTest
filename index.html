@@ -365,7 +365,7 @@
 <section id="unmanned">
   <div class="section-title">
     <span class="fontSetLg">착한가게</span><span class="num24">24</span>
-    <span class="fontSetLg">가맹점 현황</span>
+    <p class="text-gray-600 mb-8">현재 운영 중인 착한가게24 매장을 확인하세요</p>
   </div>
 
   <div class="stores-container">
@@ -404,7 +404,18 @@
       <div class="store-card" data-x="126.668773" data-y="37.4678537">착한가게24 88호점</div>
     </div>
 
-    <div id="map"></div>
+    <!-- 지도 영역 -->
+    <div id="map" style="flex:2;min-height:500px;border-radius:12px;"></div>
+  </div>
+</section>
+
+  <section id="6" class="py-16 bg-gray-50">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6 text-blue-600">가맹점 현황</h2>
+    <p class="text-gray-600 mb-8">현재 운영 중인 착한가게24 매장을 확인하세요</p>
+
+    <!-- 지도 영역 -->
+    <div id="map" style="width:100%;height:500px;border-radius:16px;"></div>
   </div>
 </section>
 
@@ -454,19 +465,49 @@
       });
     });
 
-    // 구글맵 초기화
-    function initMap() {
-      const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 37.5665, lng: 126.9780 },
-        zoom: 10,
-      });
-      const marker = new google.maps.Marker({
-        position: { lat: 37.5665, lng: 126.9780 },
-        map: map,
-        title: "착한가게24 서울점"
-      });
-    }
+    
+    var mapContainer = document.getElementById('map');
+  var mapOption = { 
+      center: new kakao.maps.LatLng(37.5355793, 126.868904), // 초기 좌표 (100호점 기준)
+      level: 6
+  }; 
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 매장 리스트
+  var storeCards = document.querySelectorAll('.store-card');
+
+  storeCards.forEach(function(card) {
+    var x = card.getAttribute('data-x');
+    var y = card.getAttribute('data-y');
+    var name = card.innerText;
+
+    var marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(y, x)
+    });
+
+    var infowindow = new kakao.maps.InfoWindow({
+      content: '<div style="padding:6px 12px;font-size:13px;">' + name + '</div>'
+    });
+
+    // 마커 hover 이벤트
+    kakao.maps.event.addListener(marker, 'mouseover', function() {
+      infowindow.open(map, marker);
+    });
+    kakao.maps.event.addListener(marker, 'mouseout', function() {
+      infowindow.close();
+    });
+
+    // 리스트 클릭 시 지도 이동 + 인포윈도우
+    card.addEventListener('click', function() {
+      var moveLatLon = new kakao.maps.LatLng(y, x);
+      map.setCenter(moveLatLon);
+      map.setLevel(3);
+      infowindow.open(map, marker);
+    });
+  });
+
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_본인_APPKEY&libraries=services"></script>
 </body>
 </html>
