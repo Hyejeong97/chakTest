@@ -145,6 +145,7 @@
           <li><a href="#cost">창업비용</a></li>
           <li><a href="#open-prep">오픈준비</a></li>
           <li><a href="#unmanned">무인매장</a></li>
+          <li><a href="#franchise">가맹점현황</a></li>
           <li><a href="#contact">상담문의</a></li>
         </ul>
       </nav>
@@ -413,6 +414,20 @@
   </div>
 </section>
 
+  <!-- 가맹점현황 -->
+  <section id="franchise">
+  <div class="mt80"></div>
+  <div style="width:100%;height:50px;text-align:center;">
+    <span class="fontSetLg" style="display:inline-block;">검증된 가맹점 현황</span>
+  </div>
+
+  <div class="mt80"></div>
+  <div style="display: flex; justify-content: center; gap:20px; flex-wrap:wrap;">
+    <canvas id="pieChart" width="300" height="300"></canvas>
+    <canvas id="pieChart2" width="300" height="300"></canvas>
+  </div>
+</section>
+
 
   <!-- 상담문의 -->
   <section id="contact">
@@ -447,7 +462,7 @@
     <span style="display:block; font-size:14px;">대표자 : 조 영 진</span>
     <span style="display:block; font-size:14px;">TEL. 1588-7126</span>
     <span style="display:block; font-size:14px;">서울특별시 서울 양천구 목동중앙남로 12 1층 착한가게24</span>
-    <span style="display:block; font-size:12px; margin-top:10px;">&copy; 2025 착한가게24. All rights reserved.</span>
+    <span style="display:block; font-size:12px; margin-top:10px;">&copy; 착한가게24. All rights reserved.</span>
   </div>
 </footer>
 
@@ -509,7 +524,50 @@
       infowindow.open(map, marker);
     });
   });
+    
+ // 공통 옵션
+  const commonOptions = {
+    responsive: false,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'top',
+      labels: { fontColor: 'black' }
+    },
+    plugins: {
+      labels: {
+        render: 'value',
+        fontColor: 'black',
+        fontSize: 15,
+        precision: 2
+      }
+    }
+  };
 
+  // 차트 데이터 설정
+  const pieData1 = {
+    labels: ['재계약률(%)'],
+    datasets: [{
+      label: '재계약률',
+      data: [50],
+      backgroundColor: ['#28c3d7']
+    }]
+  };
+
+  const pieData2 = {
+    labels: ['폐점율(%)'],
+    datasets: [{
+      label: '폐점율',
+      data: [10],
+      backgroundColor: ['#ff6b6b']
+    }]
+  };
+
+  // 차트 생성
+  const ctx1 = document.getElementById('pieChart').getContext('2d');
+  new Chart(ctx1, { type: 'doughnut', data: pieData1, options: commonOptions });
+
+  const ctx2 = document.getElementById('pieChart2').getContext('2d');
+  new Chart(ctx2, { type: 'doughnut', data: pieData2, options: commonOptions });
   </script>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_본인_APPKEY&libraries=services"></script>
 </body>
