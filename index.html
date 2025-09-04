@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>착한가게24</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans KR', sans-serif; }
     body { line-height:1.6; color:#333; scroll-behavior:smooth; }
@@ -422,9 +424,9 @@
   </div>
 
   <div class="mt80"></div>
-  <div style="display: flex; justify-content: center; gap:20px; flex-wrap:wrap;">
-    <canvas id="pieChart" width="300" height="300"></canvas>
-    <canvas id="pieChart2" width="300" height="300"></canvas>
+ <div style="display: flex; justify-content: center;">
+    <canvas id="pieChart" style="margin-left:10px; width: 300px; height: 300px;"></canvas>
+    <canvas id="pieChart2" style="margin-left:10px; width: 300px; height: 300px;"></canvas>
   </div>
 </section>
 
@@ -525,35 +527,36 @@
     });
   });
     
- // 공통 옵션
-  const commonOptions = {
-    responsive: false,
-    maintainAspectRatio: false,
-    legend: {
-      position: 'top',
-      labels: { fontColor: 'black' }
-    },
-    plugins: {
-      labels: {
-        render: 'value',
-        fontColor: 'black',
-        fontSize: 15,
-        precision: 2
-      }
-    }
-  };
-
-  // 차트 데이터 설정
-  const pieData1 = {
+  // 첫 번째 차트 - 재계약률
+  const data1 = {
     labels: ['재계약률(%)'],
     datasets: [{
       label: '재계약률',
-      data: [50],
+      data: [40],
       backgroundColor: ['#28c3d7']
     }]
   };
 
-  const pieData2 = {
+  const config1 = {
+    type: 'doughnut',
+    data: data1,
+    options: {
+      responsive: false,
+      plugins: {
+        legend: { position: 'top' },
+        datalabels: { color: 'black', font: { size: 15 } }
+      }
+    },
+    plugins: [ChartDataLabels]
+  };
+
+  const pieChart = new Chart(
+    document.getElementById('pieChart'),
+    config1
+  );
+
+  // 두 번째 차트 - 폐점율
+  const data2 = {
     labels: ['폐점율(%)'],
     datasets: [{
       label: '폐점율',
@@ -562,18 +565,27 @@
     }]
   };
 
-  // 차트 생성
-  const ctx1 = document.getElementById('pieChart').getContext('2d');
-  new Chart(ctx1, { type: 'doughnut', data: pieData1, options: commonOptions });
+  const config2 = {
+    type: 'doughnut',
+    data: data2,
+    options: {
+      responsive: false,
+      plugins: {
+        legend: { position: 'top' },
+        datalabels: { color: 'black', font: { size: 15 } }
+      }
+    },
+    plugins: [ChartDataLabels]
+  };
 
-  const ctx2 = document.getElementById('pieChart2').getContext('2d');
-  new Chart(ctx2, { type: 'doughnut', data: pieData2, options: commonOptions });
+  const pieChart2 = new Chart(
+    document.getElementById('pieChart2'),
+    config2
+  );
+
+    
   </script>
-  <!-- Chart.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Optional: Chart.js 데이터 라벨 플러그인 (위 스크립트에서 labels 사용 시 필요) -->
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_본인_APPKEY&libraries=services"></script>
 </body>
